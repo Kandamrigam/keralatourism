@@ -1,87 +1,41 @@
-var myInput = document.getElementById(“psw”);
+let email = document.getElementById("email");
+let pwd = document.getElementById("exampleInputPassword1");
 
-var letter = document.getElementById(“letter”);
-
-var capital = document.getElementById(“capital”);
-
-var number = document.getElementById(“number”);
-
-var length = document.getElementById(“length”)
-
-myInput.onfocus = function() {
-
-  document.getElementById(“message”).style.display = “block”;
-
+function valid(){
+    if(email.value.trim()==""){
+        alert("Email cannot be empty");
+        return false;
+    }
+    else if(pwd.value.trim()==""){
+        alert("please provide password");
+        return false;
+    }
+    else if(pwd.value.length<=8){
+        alert("password should contain 8 character");
+        return false;
+    }
 }
 
-myInput.onblur = function() {
+function validate(){
+    let form = document.getElementById("form");
+    let email = document.getElementById('email').value;
+    let text =document.getElementById("text");
+    let regexp = /^[^ ]+@+[a-z]{3,7}\.[a-z]{2,3}/;
 
-  document.getElementById(“message”).style.display = “none”;
-
-}
-
-myInput.onkeyup = function() {
-
-    var lowerCaseLetters = /[a-z]/g;
-
-  if(myInput.value.match(lowerCaseLetters)) {
-
-    letter.classList.remove(“invalid”);
-
-    letter.classList.add(“valid”);
-
-  } else {
-
-    letter.classList.remove(“valid”);
-
-    letter.classList.add(“invalid”);
-
-}
-
-var upperCaseLetters = /[A-Z]/g;
-
-  if(myInput.value.match(upperCaseLetters)) {
-
-    capital.classList.remove(“invalid”);
-
-    capital.classList.add(“valid”);
-
-  } else {
-
-    capital.classList.remove(“valid”);
-
-    capital.classList.add(“invalid”);
-
-  }
-
-  var numbers = /[0-9]/g;
-
-  if(myInput.value.match(numbers)) {
-
-    number.classList.remove(“invalid”);
-
-    number.classList.add(“valid”);
-
-  } else {
-
-    number.classList.remove(“valid”);
-
-    number.classList.add(“invalid”);
-
-  }
-
-  if(myInput.value.length >= 8) {
-
-    length.classList.remove(“invalid”);
-
-    length.classList.add(“valid”);
-
-  } else {
-
-    length.classList.remove(“valid”);
-
-    length.classList.add(“invalid”);
-
-  }
-
-}
+    if(email.match(regexp))
+    {
+        form.classList.add("valid");
+        form.classList.remove("invalid");
+        text.innerHTML="Your Email Adddress is valid";
+        text.style.color="#00ff00";
+    }
+    else
+    {
+        form.classList.remove("valid")
+        form.classList.add("invalid")
+        text.innerHTML="Enter valid email address";
+        text.style.color="#ff0000";
+    }
+    }
+  
+   
