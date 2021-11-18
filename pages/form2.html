@@ -98,18 +98,22 @@
       <div class="signup-box">
         <h1>Sign Up</h1>
         <h4>It's free and only takes a minute</h4>
-        <form>
-          <label>First Name</label>
-          <input type="text" placeholder="" />
-          <label>Last Name</label>
-          <input type="text" placeholder="" />
+        <form id="form" action="#" onsubmit=" return valid()"> 
+          <label>Name</label>
+          <input type="text" placeholder="Enter your name" />
+          <label>Number</label>
+          <input type="text" name="number" placeholder="Enter your number" id="number" onchange="validate()">
+          <span id="textn"></span>
           <label>Email</label>
-          <input type="email" placeholder="" />
+          <input type="text" name="email" placeholder="Enter your email" id="email" onkeydown="validate()">
+          <span id="text"></span>
           <label>Password</label>
-          <input type="password" placeholder="" />
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password" onkeyup="return passwordChanged();">
+          <span id="strength"></span>
           <label>Confirm Password</label>
-          <input type="password" placeholder="" />
-          <input type="button" value="Submit" />
+          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm your password" onkeyup="return passwordConfirm();">
+          <span id="textc"></span>
+          <input type="button" value="Submit" onclick=" return valid()"/>
         </form>
         <p>
           By clicking the Sign Up button,you agree to our <br />
@@ -180,6 +184,7 @@
   <!-- ################################################################################################ -->
   <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
   <!-- JAVASCRIPTS -->
+  <script src="java/myscripts.js"></script>
   <script src="../layout/scripts/jquery.min.js"></script>
   <script src="../layout/scripts/jquery.backtotop.js"></script>
   <script src="../layout/scripts/jquery.mobilemenu.js"></script>
